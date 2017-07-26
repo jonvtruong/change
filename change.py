@@ -1,1 +1,2 @@
 input("Amount: ")
+print ("\n")
