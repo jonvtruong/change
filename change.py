@@ -1,2 +1,2 @@
 input("Amount: ")
-print ("\n")
+print ("dasdsd \n")
