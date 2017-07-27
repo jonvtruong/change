@@ -5,15 +5,25 @@ numberCoins = {}
 # all answers found when [0 0 0 num]
 
 def calculate(value, constraint):
+    for j in range(len(constraint)):
+        value -= constraint[j] * coins[j] 
+
     temp = []
-    for key in coins: # max out with quarters first
-        numberCoins[key] = value//key
-        temp.append(numberCoins[key])
-        if (value % key == 0): #if solved (exact change combination determined) then add it to list of answers
+    
+    #get index of first zero constraint
+    index = constraint.index(0)
+
+    while index < len(coins):
+        currentCoin = coins[index]
+        numberCoins[currentCoin] = value//currentCoin
+        temp.append(numberCoins[currentCoin])
+        if (value % currentCoin == 0): #if solved (exact change combination determined) then add it to list of answers
             answer.append(temp)
             break
         else:
-            value -= key*numberCoins[key]
+            value -= currentCoin*numberCoins[currentCoin]
+        
+        index+=1
 
 def printAnswer():
     for index in answer:
