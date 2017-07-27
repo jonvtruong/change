@@ -4,7 +4,7 @@ numberCoins = {}
 
 # all answers found when [0 0 0 num]
 
-def calculate(value):
+def calculate(value, constraint):
     temp = []
     for key in coins: # max out with quarters first
         numberCoins[key] = value//key
@@ -30,6 +30,6 @@ def printAnswer():
 
 if (__name__ == '__main__'):
     amount = int(input("Amount: "))
-    calculate(amount)
+    calculate(amount, [0,0,0,0])
     printAnswer()
     
